@@ -1,0 +1,18 @@
+# Spring properties
+spring:
+  application:
+     name: socialreview-microservice
+
+
+# Server configuration
+server:
+  context-path: /micro
+  port: 8080
+
+
+# Cloudant Confiugration
+cloudant:
+    username: 7dd0dc7d-2be5-4a57-af3b-1a2f70dfd36a-bluemix
+    password: 5b1b6f55121872f9eca00daec7fcc7a59038b2c5d79003c2fa0435fdc7a09efb
+    host: http://7dd0dc7d-2be5-4a57-af3b-1a2f70dfd36a-bluemix.cloudant.com
+     
