@@ -1,0 +1,59 @@
+<ion-header class="questions-nav">
+  <ion-toolbar>
+    
+    <ion-title>Sales Helpdesk</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeFAQ()">
+      <ion-icon name="close" color="danger"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <!--<script type='text/javascript' src='/JavaScriptSpellCheck/include.js' ></script>
+<script type='text/javascript'>$Spelling.SpellCheckAsYouType('myText')</script>-->
+</ion-header>
+
+<div class="questions-container">
+<ion-content #questionsContent class="questions-box">
+  <ion-item no-lines class="questions-item" *ngFor='let chat of chats$ | async' class="questions-item">
+    <ion-card *ngIf="chat.id !== 'me'" item-left class="left">
+      <ion-row>
+        <ion-avatar item-left>
+          <img src="../assets/images/watson.jpg">
+        </ion-avatar>
+        <span class='left-arrow'></span>
+        <ion-col item-left class='left-text'>
+          <span>{{chat.text}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card *ngIf="chat.id === 'me'" item-right class="right">
+      <ion-row>
+        <ion-col item-right class='right-text'>
+          <span>{{chat.text}}</span>
+        </ion-col>
+        <span item-right class='right-arrow'></span>
+        <ion-avatar item-right>
+          <img src="../assets/images/user.png">
+        </ion-avatar>
+      </ion-row>
+    </ion-card>
+  </ion-item>
+  </ion-content>
+
+<ion-item class="semi-transparent-item">
+  <ion-input autofocus clearInput name="myText" class="chat-input" placeholder="Chat" type="text" [(ngModel)]='input'   (window:keydown)="keydown($event)"></ion-input>
+</ion-item>
+<ion-item no-lines class="semi-transparent-item">
+  <ion-buttons>
+    <button ion-button icon-only clear color="primary" (click)='send()'><ion-icon name="md-send"></ion-icon></button>
+   <!-- <button ion-button icon-only clear color="primary" (click)='record()'><ion-icon name="md-microphone"></ion-icon></button>-->
+  </ion-buttons>
+  <ion-note *ngIf='classification' item-right class="confidence-box">
+    {{classification.class_name}}: {{classification.confidence | number :'.4-4'}}
+  </ion-note>
+</ion-item>
+
+<audio id='questions-audio'>
+</audio>
+</div>
+

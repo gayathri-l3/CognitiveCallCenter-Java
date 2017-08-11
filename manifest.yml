@@ -1,0 +1,7 @@
+
+applications:
+- name: BSUCinciSalesHelpdeskClient
+  domain: mybluemix.net
+  host: bsucincisaleshelpdeskclient
+  
+  

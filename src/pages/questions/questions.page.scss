@@ -1,0 +1,120 @@
+questions-page{
+
+  $chat-watson: rgba(125, 168, 232, 0.95);
+  $chat-user: rgba(255, 255, 102, 0.95);
+  $msg-width: 48%;
+  $msg-padding: 10px;
+  $anim-dur: .25s;
+  $border-radius: 8px;
+  $watson-border-radius: 0px 8px 8px 8px;
+  $user-border-radius: 8px 0px 8px 8px;
+  
+  .questions-box{
+    height: 73.6vh;
+    width: auto;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 1.0)
+  }
+  .questions-container{
+    padding-top: 60px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 1.0)
+  }
+  .questions-item{
+    background-color: rgba(0, 0, 0, 0.00);
+    animation: itemanim;
+    animation-duration:$anim-dur;
+  }
+  .questions-nav{
+    background-color: grey !important;
+    color: white;
+  }
+    @keyframes rightanim {
+      0%   {background: rgba(255, 255, 153, 0.01); width: 0px;font-size:0;}
+      100% {background: $chat-user; width: $msg-width;border-radius: $border-radius;}
+  }
+    @keyframes leftanim {
+      0%   {background: rgba(0, 102, 204, 0.01); width: 100px;font-size:0;}
+      100% {background: $chat-watson; width: $msg-width;border-radius: $border-radius;}
+  }
+    @keyframes chatanim {
+      0%   {width: 100px;font-size:0;}
+      100% { width: $msg-width;}
+  }
+    @keyframes itemanim {
+      0%   {padding-bottom:65px}
+      100% {padding-bottom:0px}
+  }
+    @keyframes example {
+      from {background-color: #387ef5;}
+      to {background-color: yellow;}
+    }
+
+  .left{
+    background: transparent;
+    height: auto;
+    width: $msg-width;
+    text-align: left;
+    overflow-y: hidden;
+    box-shadow: none;
+    animation: leftanim;
+    animation-duration: $anim-dur;
+  }
+  .right{
+    background: transparent;
+    height: auto;
+    width: $msg-width;
+    box-shadow: none;
+    text-align: right;
+    animation: rightanim;
+    animation-duration: $anim-dur;
+  }
+  .left-text{
+    background: $chat-watson;
+    padding: $msg-padding;
+    border: 1px solid $chat-watson;
+    border-radius: $watson-border-radius;
+    word-wrap: break-word;
+  }
+  .right-text{
+    background: $chat-user;
+    margin-right: 0;
+    padding: $msg-padding;
+    border: 1px solid $chat-user;
+    border-radius: $user-border-radius;
+    word-wrap: break-word;
+  }
+  .left-arrow{
+    width: 0; 
+    height: 0; 
+    margin-top: 9px;
+    border-top: 0px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 8px solid $chat-watson;
+  }
+  .right-arrow{
+    width: 0; 
+    height: 0;
+    border-top: 0px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 8px solid $chat-user;
+  }
+  .chatlogo{
+    background: white;
+    font-size: 5vw;
+    vertical-align: text-top;
+    animation: chatanim;
+    animation-duration: $anim-dur
+  }
+  .item{
+    animation: itemanim;
+    animation-duration:$anim-dur
+  }
+  .chat-input{
+    color: white;
+  }
+  .semi-transparent-item{
+    background-color: rgba(0,0,0,0.99) !important;
+  }
+}
